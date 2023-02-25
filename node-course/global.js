@@ -1,4 +1,6 @@
-/*the global object is a js object that we can use its methods whitout the need of calling it again ex(window.setTimeout you can wall timeOut withou window because window is a global object)*/
+/*the global object is a js object that we can use its methods whitout the need of 
+calling it again ex(window.setTimeout you can wall timeOut withou window because
+   window is a global object)*/
 
 /* the global object in node is 'global' */
 
