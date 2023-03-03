@@ -15,13 +15,28 @@ const posts = [
     desc: "this is post3",
   },
 ];
+import bcrypt from "bcrypt";
 
-const getAllPosts = async (req, res) => {
+export const getAllPosts = (req, res) => {
   try {
     res.status(200).json(posts);
   } catch (error) {
     res.status(500).json({
-      location: "getAllPosts error",
+      location: "error on getAllPosts controller",
+      message: error.message,
+    });
+  }
+};
+export const addPost = async (req, res) => {
+  try {
+    const newPost = req.body;
+    const hashedId = await bcrypt.hash(newPost.desc, 10);
+    const hashedPosts = { ...posts, id: hashedId };
+    posts.push(hashedPosts);
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({
+      location: "error on addPost controller",
       message: error.message,
     });
   }

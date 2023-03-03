@@ -1,13 +1,13 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const postRouter = require("./routes/posts.js");
+import express from "express";
+import dotenv from "dotenv";
+import postsRouter from "./routes/posts.js";
 dotenv.config();
 const app = express();
 
 app.use(express.json());
 
-app.use("/posts", postRouter);
+app.use("/posts", postsRouter);
 
-app.listen(process.env.PORT, () => {
-  console.log("server is running on port " + process.env.PORT);
+app.listen(3005, () => {
+  console.log("server is running on port 3005 ");
 });
